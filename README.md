@@ -27,6 +27,7 @@ The user has he mandate to change the username - just click on teh profile, it w
 Incase the user lost teh password, teh forgoten password link wil directed them on what to do.
 
 ADMIN
+
 The admin has special pages that hey can access.
 There are two types of admin,main admin and staff. The staff have limited roles like adding the products, modifying the prices etc.
 The main admin can delete users, and add more roles to the staff.
