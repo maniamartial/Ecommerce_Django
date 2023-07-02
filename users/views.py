@@ -10,7 +10,6 @@ from django.contrib import messages
 
 # Create your views here.
 
-
 # Register members
 @unauthenticated_user
 def Register(request):

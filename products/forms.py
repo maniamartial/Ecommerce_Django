@@ -68,7 +68,6 @@ class constForm(forms.ModelForm):
         fields = ['title', 'location', 'specification_service', 'size', 'number', 'time',
                   'fee']
 
-
 class plumbForm(forms.ModelForm):
     class Meta:
         model = Service

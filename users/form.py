@@ -24,7 +24,6 @@ class User_Update_Form(forms.ModelForm):
         model = User
         fields = ['username', 'email']
 
-
 class AddressForm(UserCreationForm):
     f_name = forms.CharField(max_length=100)
     l_name = forms.CharField(max_length=100)
