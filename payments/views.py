@@ -30,6 +30,7 @@ def showform(request):
             customer=customer, complete=False)
         items = order.orderitem_set.all()
         cartitems = order.get_cart_items
+
         total = math.trunc(order.get_cart_totals)
 
         print(cartitems)
@@ -69,8 +70,9 @@ def showform(request):
     context = {'form': form}
     return render(request, 'payments/payments.html', context)
 
-
 # The last page
+
+
 def thankspayment(request):
 
     if request.user.is_authenticated:
