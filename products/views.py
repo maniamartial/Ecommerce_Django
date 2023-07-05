@@ -347,7 +347,7 @@ def addProduct(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('modifyAllProduct')
+            return redirect('addProduct')
         else:
             form = ProductForm()
     context = {
