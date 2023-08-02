@@ -28,20 +28,31 @@ urlpatterns = [
     # path('', include('checkout.urls')),
     path('users/', include('users.urls')),
     path('payments/', include('payments.urls')),
-    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
 
-    path('password-reset/', auth_views.PasswordResetView.as_view(
-         template_name='users/password_reset.html'), name='password_reset'),
-    path('password-reset/done', auth_views.PasswordResetDoneView.as_view(
-        template_name='users/password_reset_done.html'), name='password_reset_done'),
-    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
-        template_name='users/password_reset_confirm.html'), name='password_reset_confirm'),
-    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(
-        template_name='users/password_reset_complete.html'), name='password_reset_complete'),
+    # Authentication URL patterns
+
+# LogoutView: View for logging out the user
+path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+
+# PasswordResetView: View for initiating the password reset process
+path('password-reset/', auth_views.PasswordResetView.as_view(
+     template_name='users/password_reset.html'), name='password_reset'),
+
+# PasswordResetDoneView: View shown after the password reset email has been sent
+path('password-reset/done', auth_views.PasswordResetDoneView.as_view(
+    template_name='users/password_reset_done.html'), name='password_reset_done'),
+
+# PasswordResetConfirmView: View for confirming the password reset using a unique token
+path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
+    template_name='users/password_reset_confirm.html'), name='password_reset_confirm'),
+
+# PasswordResetCompleteView: View shown after the password has been successfully reset
+path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(
+    template_name='users/password_reset_complete.html'), name='password_reset_complete'),
 
 ]
 
-
+#setting up to handle the media
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
