@@ -10,7 +10,6 @@ import datetime
 import json
 from . mpesa_credentials import MpesaAccessToken, LipanaMpesaPpassword
 
-
 def getAccessToken(request):
     consumer_key = 'XjWEg9z1ihL9zoXO1JRaCOhfIJAgB8cu'
     consumer_secret = 'y48BAeDDA0AgXqI2'
@@ -21,9 +20,8 @@ def getAccessToken(request):
     validated_mpesa_access_token = mpesa_access_token['access_token']
     return HttpResponse(validated_mpesa_access_token)
 
-
+#Payments
 def showform(request):
-
     if request.user.is_authenticated:
         customer = request.user
         order, created = Order.objects.get_or_create(
@@ -61,7 +59,6 @@ def showform(request):
                 "AccountReference": "Mania",
                 "TransactionDesc": "Fear not for I am with you"
             }
-
             response = requests.post(api_url, json=request, headers=headers)
             print(response)
             # return HttpResponse('success')
@@ -70,11 +67,8 @@ def showform(request):
     context = {'form': form}
     return render(request, 'payments/payments.html', context)
 
-# The last page
-
-
+# The last message after payments
 def thankspayment(request):
-
     if request.user.is_authenticated:
         customer = request.user
         order, created = Order.objects.get_or_create(
@@ -82,14 +76,11 @@ def thankspayment(request):
         items = order.orderitem_set.all()
         cartitems = order.get_cart_items
         total = order.get_cart_totals
-
-        print(cartitems)
-        print(total)
     t_time = datetime.datetime.now()
     hours = 0.5
     added_time = datetime.timedelta(hours=hours)
     time = t_time + added_time
-    print(time)
-
+    
     context = {'time': time}
     return render(request, 'payments/thanks.html', context)
+
