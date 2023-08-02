@@ -54,46 +54,6 @@ def waterSamples(request):
 
     return render(request, "products/waterSamples.html", context)
 
-
-# Different Water Services
-'''def waterServices(request):
-    categories = Category.objects.filter(
-        name__startswith="Services")
-    page_num = request.GET.get("page")
-    paginator = Paginator(categories, 3)
-    try:
-        categories = paginator.page(page_num)
-    except PageNotAnInteger:
-        categories = paginator.page(1)
-    except EmptyPage:
-        categores = paginator.page(paginator.num_pages)
-
-    if request.user.is_authenticated:
-        customer = request.user
-        order, created = Order.objects.get_or_create(
-            customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        cartitems = order.get_cart_items
-    else:
-        items = []
-        order = {' get_cart_total': 0, 'get_cart_items': 0}
-        cartitems = order['get_cart_items']
-
-    waterservices = Product.objects.all()
-    action = waterservices['action']
-    if action == 'highest':
-        waterservices = Product.objects.all().order_by('price')
-        print('highest')
-    elif action == 'lowest':
-        waterservices = Product.objects.all().order_by('-price')
-        print('lowest')
-
-    context = {
-        'categories': categories, 'waterservicess': waterservices, 'cartitems': cartitems
-    }
-    return render(request, "products/waterServicesPage.html", context)'''
-
-
 # Different water Products
 def waterProducts(request):
     categories = Category.objects.filter(
@@ -484,13 +444,6 @@ def singleCategoryProducts(request):
                'product': product}
 
     return render(request, 'products/singleCategory', context)
-
-
-'''def getNumber(request):
-    if request.user.is_authenticated:
-        current_user = request.user
-        number = current_user.username
-        return number'''
 
 
 @login_required
