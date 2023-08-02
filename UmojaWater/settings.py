@@ -36,7 +36,6 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'users',
     'products',
-    'checkout',
     'payments',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
