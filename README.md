@@ -1,6 +1,7 @@
 # Django Water E-Commerce
 
-The application is like an ecommerce which allows customer to order water in a specific region. Its a fullstack application
+The application is like an ecommerce which allows customer to order water in a specific region. Its a full-stack application
+https://wode.onrender.com/
 
 #TECHNOOGIES USED
 
